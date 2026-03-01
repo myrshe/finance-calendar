@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "Finaldinca";
+  src: url("/src/shared/assets/fonts/Finlandica/Finlandica-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Finaldinca";
+  src: url("/src/shared/assets/fonts/Finlandica/Finlandica-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Finaldinca";
+  src: url("/src/shared/assets/fonts/Finlandica/Finlandica-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Finaldinca";
+  src: url("/src/shared/assets/fonts/Finlandica/Finlandica-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Italic */
+
+@font-face {
+  font-family: "Finaldinca";
+  src: url("/src/shared/assets/fonts/Finlandica/Finlandica-Italic.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Finaldinca";
+  src: url("/src/shared/assets/fonts/Finlandica/Finlandica-MediumItalic.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Finaldinca";
+  src: url("/src/shared/assets/fonts/Finlandica/Finlandica-SemiBoldItalic.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Finaldinca";
+  src: url("/src/shared/assets/fonts/Finlandica/Finlandica-BoldItalic.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
