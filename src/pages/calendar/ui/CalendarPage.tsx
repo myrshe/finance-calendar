@@ -12,9 +12,12 @@ export function CalendarPage() {
       firstDayOfWeek="Понедельник"
     >
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_343px] gap-3">
-        <CalendarSettings />
-        <CalendarSettings />
-        <CalendarViewRenderer />
+        <section className="bg-card2 rounded-2xl">
+          <CalendarViewRenderer />
+        </section>
+        <aside className="flex flex-col gap-3">
+          <CalendarSettings />
+        </aside>
       </div>
     </CalendarProvider>
   );
