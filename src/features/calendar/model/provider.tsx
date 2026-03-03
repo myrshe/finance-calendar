@@ -3,7 +3,12 @@ import {
   CalendarContext,
   type CalendarContextType,
 } from "./context";
-import type { WeekDay, CalendarView } from "@/entities/calendar/model/types";
+import {
+  type WeekDay,
+  type CalendarView,
+  WEEK_DAY_TO_NUMBER
+} from "@/entities/calendar/model/types";
+import dayjs from "@/shared/config/dayjs/dayjs-config";
 
 interface CalendarProviderProps {
   children: React.ReactNode;
@@ -26,69 +31,94 @@ export const CalendarProvider: React.FC<CalendarProviderProps> = ({
   const [showIncomes, setShowIncomes] = useState(true);
   const [showExpenses, setShowExpenses] = useState(true);
   // состояние
-  const [currentDate, setCurrentDate] = useState<Date>(initialDate);
-  const today = useMemo(() => new Date(), []);
+  const [currentDate, setCurrentDate] = useState<dayjs.Dayjs>(
+    dayjs.isDayjs(initialDate) ? initialDate : dayjs(initialDate),
+  );
+  const today = useMemo(() => dayjs(), []);
 
   // навигация
   const navigatePrev = useCallback(() => {
     setCurrentDate((prev) => {
-      const newDate = new Date(prev);
       if (view === "month") {
-        newDate.setMonth(prev.getMonth() - 1);
+        return prev.subtract(1, "month");
       } else if (view === "week") {
-        newDate.setDate(prev.getDate() - 7);
+        return prev.subtract(1, "week");
       }
-      return newDate;
+      return prev;
     });
   }, [view]);
 
   const navigateNext = useCallback(() => {
     setCurrentDate((prev) => {
-      const newDate = new Date(prev);
       if (view === "month") {
-        newDate.setMonth(prev.getMonth() + 1);
+        return prev.add(1, "month");
       } else if (view === "week") {
-        newDate.setDate(prev.getDate() + 7);
-      } 
-      return newDate;
+        return prev.add(1, "week");
+      }
+      return prev;
     });
   }, [view]);
 
   const goToday = useCallback(() => {
-    setCurrentDate(new Date());
+    setCurrentDate(dayjs());
   }, []);
 
-  // значение контекста
+  const goToMonth = useCallback((month: number) => {
+    setCurrentDate((prev) => prev.month(month));
+  }, []);
+
+  const goToYear = useCallback((year: number) => {
+    setCurrentDate((prev) => prev.year(year));
+  }, []);
+
+  const goToWeek = useCallback((weekStart: dayjs.Dayjs) => {
+    setCurrentDate(weekStart);
+  }, []);
+
+  const firstDayOfWeekNumber = useMemo(
+    () => WEEK_DAY_TO_NUMBER[firstDayOfWeekState],
+    [firstDayOfWeekState],
+  );
+
+  // значения контекста
   const value = useMemo<CalendarContextType>(
     () => ({
       view,
       firstDayOfWeek: firstDayOfWeekState,
-      dayMaxTransaction,
       showIncomes,
       showExpenses,
+      dayMaxTransaction,
       currentDate,
       today,
+      firstDayOfWeekNumber,
       setView,
       setFirstDayOfWeek: setFirstDayOfWeekState,
-      setDayMaxTransaction,
       setShowIncomes,
       setShowExpenses,
+      setDayMaxTransaction,
       setCurrentDate,
       navigatePrev,
       navigateNext,
       goToday,
+      goToMonth,
+      goToYear,
+      goToWeek
     }),
     [
       view,
       firstDayOfWeekState,
-      dayMaxTransaction,
+      firstDayOfWeekNumber,
       showIncomes,
       showExpenses,
+      dayMaxTransaction,
       currentDate,
       today,
       navigatePrev,
       navigateNext,
       goToday,
+      goToMonth,
+      goToYear,
+      goToWeek
     ],
   );
 

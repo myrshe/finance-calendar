@@ -5,5 +5,5 @@ export type {
 } from "./model/context";
 
 export { CalendarSettings } from "./calendar-settings/ui/CalendarSettings";
-export { MonthView } from "./month-view/ui/month-view";
-export { WeekView } from "./week-view/ui/week-view";
+export { MonthView } from "./month-view/ui/MonthView";
+export { WeekView } from "./week-view/ui/WeekView";

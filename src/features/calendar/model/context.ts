@@ -1,6 +1,6 @@
 import type { CalendarView, WeekDay } from '@/entities/calendar/model/types';
 
-
+import  dayjs  from "@/shared/config/dayjs/dayjs-config"
 import { createContext, useContext } from "react";
 
 
@@ -8,22 +8,26 @@ import { createContext, useContext } from "react";
 export interface CalendarContextType {
   view: CalendarView;
   firstDayOfWeek: WeekDay;
+  firstDayOfWeekNumber: number;
   dayMaxTransaction: number;
   showIncomes: boolean;
   showExpenses: boolean;
 
-  currentDate: Date;
-  today: Date;
+  currentDate: dayjs.Dayjs;
+  today: dayjs.Dayjs;
 
   setView: (view: CalendarView) => void;
   setFirstDayOfWeek: (day: WeekDay) => void;
   setDayMaxTransaction: (count: number) => void;
   setShowIncomes: (show: boolean) => void;
   setShowExpenses: (show: boolean) => void;
-  setCurrentDate: (date: Date) => void;
+  setCurrentDate: (date: dayjs.Dayjs) => void;
   navigatePrev: () => void;
   navigateNext: () => void;
   goToday: () => void;
+  goToMonth: (month: number) => void;
+  goToYear: (year: number) => void;
+  goToWeek: (weekStart: dayjs.Dayjs) => void;
 }
 
 export const CalendarContext = createContext<CalendarContextType | undefined>(

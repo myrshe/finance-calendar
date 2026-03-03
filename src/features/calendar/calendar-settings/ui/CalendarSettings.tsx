@@ -1,10 +1,7 @@
 import type { CalendarView, WeekDay } from "@/entities/calendar/model/types";
 import {
   Card,
-  CardAction,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/shared/ui/card";
@@ -18,19 +15,6 @@ import {
 import { Button } from "@/shared/ui/button";
 import { Checkbox } from "@/shared/ui/checkbox";
 import { useCalendar } from "@/features/calendar";
-
-// type CalendarSettingsProps = {
-//   initialView: CalendarView;
-//   setInitialView: (value: CalendarView) => void;
-//   firstDayOfWeek: WeekDay;
-//   setFirstDayOfWeek: (value: WeekDay) => void;
-//   showIncomes: boolean;
-//   setShowIncomes: (value: boolean) => void;
-//   showExpenses: boolean;
-//   setShowExpenses: (value: boolean) => void;
-//   dayMaxTransaction: number;
-//   setDayMaxTransaction: (value: number) => void;
-// };
 
 export const CalendarSettings = () => {
   const {

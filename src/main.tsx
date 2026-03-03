@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './app/styles/index.css'
 import App from './app/App.tsx'
 import { AppProviders } from "@/app/providers/AppProviders";
+import "@/shared/config/dayjs/dayjs-config.ts";
 
 createRoot(document.getElementById("root")!).render(
   <AppProviders>
