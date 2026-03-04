@@ -1,4 +1,4 @@
-import type { CalendarView, WeekDay } from "@/entities/calendar/model/types";
+import type { WeekDay } from "@/entities/calendar/model/types";
 import {
   Card,
   CardContent,
@@ -47,7 +47,7 @@ export const CalendarSettings = () => {
           className={`w-[146px] ${
             view === "week" ? "bg-primary" : "bg-input"
           }`}
-          onClick={() => setView("week")}
+          onClick={() => {setView("week"); setDayMaxTransaction(1000)}}
         >
           Неделя
         </Button>

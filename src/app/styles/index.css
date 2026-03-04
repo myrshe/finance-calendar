@@ -25,7 +25,13 @@
   --card2: oklch(0.8417 0.0141 93.01 / 85%);
   --card3: oklch(0.9874 0.0189 93.66 / 70%);
   --card4: oklch(0.8865 0.0187 86.15 / 70%);
+  --card-non-incoming:oklch(0.8975 0 0);
+  --card-calendar-item: oklch(0.9642 0 0);
   --card-foreground: oklch(0.145 0 0);
+  --income-background:oklch(0.8181 0.0596 131.15);
+  --income-dark: oklch(0.3255 0.0216 182.11);
+  --expense-background: oklch(0.768 0.0389 49.92);
+  --expense-dark: oklch(0.3481 0.0956 14.56);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.9043 0.154 95.32);
@@ -70,7 +76,13 @@
   --color-card2: var(--card2);
   --color-card3: var(--card3);
   --color-card4: var(--card4);
+  --color-card-non-incoming: var(--card-non-incoming);
+  --color-card-calendar-item: var(--card-calendar-item);
   --color-card-foreground: var(--card-foreground);
+  --color-income-background: var(--income-background);
+  --color-income-dark: var(--income-dark);
+  --color-expense-background: var(--expense-background);
+  --color-expense-dark: var(--expense-dark);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
@@ -146,8 +158,5 @@
     font-family: 'Finaldinca', system-ui, sans-serif;
     background: linear-gradient(135deg, #E3E4E7 0%, #FAEFC2 100%);
     min-height: 100vh;
-  }
-  main {
-    /* margin-top: 84px; */
   }
 }

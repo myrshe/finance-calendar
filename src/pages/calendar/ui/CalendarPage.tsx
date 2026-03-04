@@ -3,6 +3,59 @@ import { CalendarProvider } from "@/features/calendar";
 import { CalendarSettings } from "@/features/calendar/calendar-settings";
 import { useCalendar } from "@/features/calendar";
 import { MonthView, WeekView } from "@/features/calendar";
+import type { Transaction } from "@/entities/transaction/model/types";
+
+const Transactions: Transaction[] = [
+  {
+    id: "1",
+    title: "Зарплата",
+    amount: 50000,
+    type: "income",
+    date: "2026-03-04",
+    category: "Перевод",
+  },
+  {
+    id: "2",
+    title: "Продукты",
+    amount: 500,
+    type: "expense",
+    date: "2026-03-04",
+    category: "Супермаркетыыыыыыы",
+  },
+  {
+    id: "3",
+    title: "Продуктыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы",
+    amount: 500,
+    type: "expense",
+    date: "2026-03-04",
+    category: "Супермаркеты",
+  },
+  {
+    id: "4",
+    title: "Продукты",
+    amount: 500,
+    type: "expense",
+    date: "2026-03-04",
+    category: "Супермаркеты",
+  },
+  {
+    id: "5",
+    title: "Продукты",
+    amount: 500,
+    type: "expense",
+    date: "2026-03-04",
+    category: "Супермаркеты",
+  },
+  {
+    id: "6",
+    title: "Продукты",
+    amount: 500,
+    type: "expense",
+    date: "2026-03-04",
+    category: "Супермаркеты",
+  },
+];
+
 
 export function CalendarPage() {
   return (
@@ -27,10 +80,10 @@ const CalendarViewRenderer = () => {
 
   switch (view) {
     case "month":
-      return <MonthView />;
+      return <MonthView transactions={Transactions}/>;
     case "week":
-      return <WeekView />;
+      return <WeekView transactions={Transactions}/>;
     default:
-      return <MonthView />;
+      return <MonthView transactions={Transactions} />;
   }
 };

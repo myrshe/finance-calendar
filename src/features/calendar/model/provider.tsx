@@ -27,7 +27,7 @@ export const CalendarProvider: React.FC<CalendarProviderProps> = ({
   const [view, setView] = useState<CalendarView>(initialView);
   const [firstDayOfWeekState, setFirstDayOfWeekState] =
     useState<WeekDay>(firstDayOfWeek);
-  const [dayMaxTransaction, setDayMaxTransaction] = useState(3);
+  const [dayMaxTransaction, setDayMaxTransaction] = useState(2);
   const [showIncomes, setShowIncomes] = useState(true);
   const [showExpenses, setShowExpenses] = useState(true);
   // состояние
