@@ -1,1 +1,1 @@
-export { DayCell } from "./ui/DayCell"
+export { DayCell } from "./ui/DayCell";

@@ -9,6 +9,8 @@ import {
   WEEK_DAY_TO_NUMBER
 } from "@/entities/calendar/model/types";
 import dayjs from "@/shared/config/dayjs/dayjs-config";
+import type { Transaction } from "@/entities/transaction/model/types";
+import { DayModal } from "../day-modal";
 
 interface CalendarProviderProps {
   children: React.ReactNode;
@@ -35,6 +37,15 @@ export const CalendarProvider: React.FC<CalendarProviderProps> = ({
     dayjs.isDayjs(initialDate) ? initialDate : dayjs(initialDate),
   );
   const today = useMemo(() => dayjs(), []);
+
+  const [modalDate, setModalData] = useState<{date: dayjs.Dayjs | null, transactions: Transaction[]}> ({date: null, transactions: []})
+
+  const openDayModal = (date: dayjs.Dayjs, transactions: Transaction[]) => {
+    setModalData({date, transactions})
+  }
+  const closeDayModal = () => {
+    setModalData({date: null, transactions: []})
+  }
 
   // навигация
   const navigatePrev = useCallback(() => {
@@ -102,7 +113,8 @@ export const CalendarProvider: React.FC<CalendarProviderProps> = ({
       goToday,
       goToMonth,
       goToYear,
-      goToWeek
+      goToWeek,
+      openDayModal,
     }),
     [
       view,
@@ -118,13 +130,21 @@ export const CalendarProvider: React.FC<CalendarProviderProps> = ({
       goToday,
       goToMonth,
       goToYear,
-      goToWeek
+      goToWeek,
+      openDayModal,
     ],
   );
 
   return (
     <CalendarContext.Provider value={value}>
       {children}
+      {modalDate.date &&
+        <DayModal
+        date={modalDate.date}
+        transactions={modalDate.transactions}
+        onClose={closeDayModal}
+        />
+      }
     </CalendarContext.Provider>
   );
 };

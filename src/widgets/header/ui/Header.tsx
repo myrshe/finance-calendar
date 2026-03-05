@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <header className="fixed z-50 left-1/2 -translate-x-1/2 top-2 w-full max-w-[1702px] mx-auto min-h-[60px] px-8 bg-background rounded-xl flex justify-between items-center">
+    <header className="fixed z-30 left-1/2 -translate-x-1/2 top-2 w-full max-w-[1702px] mx-auto min-h-[60px] px-8 bg-background rounded-xl flex justify-between items-center">
       <div className="w-full flex items-center justify-between">
         <nav className="h-full flex items-center gap-6">
           {navigation.map((item) => (

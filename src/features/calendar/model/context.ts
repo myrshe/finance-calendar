@@ -1,4 +1,5 @@
 import type { CalendarView, WeekDay } from '@/entities/calendar/model/types';
+import type { Transaction } from '@/entities/transaction/model/types';
 
 import  dayjs  from "@/shared/config/dayjs/dayjs-config"
 import { createContext, useContext } from "react";
@@ -28,6 +29,8 @@ export interface CalendarContextType {
   goToMonth: (month: number) => void;
   goToYear: (year: number) => void;
   goToWeek: (weekStart: dayjs.Dayjs) => void;
+
+  openDayModal: (day: dayjs.Dayjs, transactions: Transaction[]) => void;
 }
 
 export const CalendarContext = createContext<CalendarContextType | undefined>(
