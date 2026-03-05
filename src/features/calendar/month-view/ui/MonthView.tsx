@@ -38,7 +38,7 @@ export const MonthView: React.FC<MonthViewProps> = ({transactions}) => {
             <div className="flex justify-center">
               <div
                 key={day}
-                className="bg-card2 w-35 rounded-xl text-center text-normal py-2"
+                className="bg-card2 w-14 lg:w-35 rounded-xl text-center text-normal py-2"
               >
                 <span className="hidden sm:inline">{day}</span>
                 <span className="sm:hidden">{shortDay}</span>

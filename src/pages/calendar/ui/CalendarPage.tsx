@@ -11,7 +11,7 @@ const Transactions: Transaction[] = [
     title: "Зарплата",
     amount: 50000,
     type: "income",
-    date: "2026-03-04",
+    date: "2026-03-04T14:30:00",
     category: "Перевод",
   },
   {
@@ -19,7 +19,7 @@ const Transactions: Transaction[] = [
     title: "Продукты",
     amount: 500,
     type: "expense",
-    date: "2026-03-04",
+    date: "2026-03-04T14:31:00",
     category: "Супермаркетыыыыыыы",
   },
   {
@@ -27,7 +27,7 @@ const Transactions: Transaction[] = [
     title: "Продуктыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы",
     amount: 500,
     type: "expense",
-    date: "2026-03-04",
+    date: "2026-03-04T15:30:00",
     category: "Супермаркеты",
   },
   {
@@ -35,7 +35,7 @@ const Transactions: Transaction[] = [
     title: "Продукты",
     amount: 500,
     type: "expense",
-    date: "2026-03-04",
+    date: "2026-03-04T15:40:00",
     category: "Супермаркеты",
   },
   {
@@ -43,7 +43,7 @@ const Transactions: Transaction[] = [
     title: "Продукты",
     amount: 500,
     type: "expense",
-    date: "2026-03-04",
+    date: "2026-03-04T16:30:00",
     category: "Супермаркеты",
   },
   {
@@ -51,7 +51,7 @@ const Transactions: Transaction[] = [
     title: "Продукты",
     amount: 500,
     type: "expense",
-    date: "2026-03-04",
+    date: "2026-03-04T23:30:00",
     category: "Супермаркеты",
   },
 ];

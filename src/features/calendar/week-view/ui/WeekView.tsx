@@ -2,35 +2,40 @@ import { CalendarHeader } from "../../calendar-header";
 import type { Transaction } from "@/entities/transaction/model/types";
 import { useCalendar } from "@/features/calendar";
 import { getWeekDays } from "@/shared/config/dayjs/date";
-import dayjs from "@/shared/config/dayjs/dayjs-config"
+import dayjs from "@/shared/config/dayjs/dayjs-config";
 import { DayCell } from "../../day-cell";
 
 interface WeekViewProps {
-  transactions: Transaction[]
+  transactions: Transaction[];
 }
 
-export const WeekView: React.FC<WeekViewProps> = ({transactions}) => {
-
+export const WeekView: React.FC<WeekViewProps> = ({ transactions }) => {
   const { currentDate, firstDayOfWeekNumber } = useCalendar();
-  
-    const days = getWeekDays(currentDate, firstDayOfWeekNumber);
-  
-    const weekDayLabels = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
-  
-    const weekDayLabelsShort = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
-  
-  
-    const orderedLabels = [
-      ...weekDayLabels.slice(firstDayOfWeekNumber),
-      ...weekDayLabels.slice(0, firstDayOfWeekNumber),
-      ];
-  
-    const orderedShortLabels = [
-      ...weekDayLabelsShort.slice(firstDayOfWeekNumber),
-      ...weekDayLabelsShort.slice(0, firstDayOfWeekNumber),
-    ];
 
-  
+  const days = getWeekDays(currentDate, firstDayOfWeekNumber);
+
+  const weekDayLabels = [
+    "Воскресенье",
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+  ];
+
+  const weekDayLabelsShort = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
+
+  const orderedLabels = [
+    ...weekDayLabels.slice(firstDayOfWeekNumber),
+    ...weekDayLabels.slice(0, firstDayOfWeekNumber),
+  ];
+
+  const orderedShortLabels = [
+    ...weekDayLabelsShort.slice(firstDayOfWeekNumber),
+    ...weekDayLabelsShort.slice(0, firstDayOfWeekNumber),
+  ];
+
   return (
     <div className="px-1 py-2.5 lg:py-5 lg:px-10">
       <CalendarHeader />
@@ -54,15 +59,16 @@ export const WeekView: React.FC<WeekViewProps> = ({transactions}) => {
         {days.map((day) => {
           const isCurrentMonth = day.isSame(currentDate, "month");
           const dayTransactions = transactions.filter((t) =>
-                dayjs(t.date).isSame(day, "day"),);
+            dayjs(t.date).isSame(day, "day"),
+          );
           return (
             <DayCell
-            key={day.toISOString()}
-            date = {day}
-            isCurrentMonth = {isCurrentMonth}
-            transactions={dayTransactions}
+              key={day.toISOString()}
+              date={day}
+              isCurrentMonth={isCurrentMonth}
+              transactions={dayTransactions}
             />
-          )
+          );
         })}
       </div>
     </div>

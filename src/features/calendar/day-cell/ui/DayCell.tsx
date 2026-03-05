@@ -1,7 +1,7 @@
 import type { Transaction } from "@/entities/transaction/model/types";
 import { useCalendar } from "../../model/context"
 import dayjs from "@/shared/config/dayjs/dayjs-config";
-import { TransactionCard } from "@/entities/transaction/ui/transaction";
+import { TransactionCard } from "@/entities/transaction/";
 
 interface DayCellProps {
     isCurrentMonth: boolean,
@@ -13,7 +13,7 @@ interface DayCellProps {
 export const DayCell: React.FC<DayCellProps> = ({
     isCurrentMonth, date, transactions
 }) => {
-    const { today, dayMaxTransaction, showIncomes, showExpenses, view } = useCalendar()
+    const { today, dayMaxTransaction, showIncomes, showExpenses, view, openDayModal} = useCalendar()
 
     const isToday = date.isSame(today, "day");
     const isWeekend = date.day() === 0 || date.day() === 6;
@@ -43,7 +43,9 @@ export const DayCell: React.FC<DayCellProps> = ({
 
     return (
       <div
-        className={`min-w-16 min-h-27 p-0.5 lg:min-w-15 lg:min-h-44 rounded-md lg:rounded-2xl lg:p-2.75 flex flex-col ${backgroundClass()} ${view == "week"&&`h-[1000px]`}`}
+        onClick={() => openDayModal(date, transactions)}
+        className={`min-w-16 min-h-27 p-0.5 lg:min-w-15 lg:min-h-44 rounded-md lg:rounded-2xl lg:p-2.75 flex flex-col cursor-pointer 
+          ${backgroundClass()} ${view == "week"&&`h-[1000px]`}`}
       >
         <div className="flex justify-between truncate mb-1.5">
           <div
